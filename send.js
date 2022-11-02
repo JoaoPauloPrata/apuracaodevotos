@@ -1,5 +1,6 @@
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
+this.mySQL = require('mysql2');
 // Set the region 
 AWS.config.loadFromPath(__dirname + '/config.json');
 // Create an SQS service object
@@ -12,8 +13,8 @@ function sleep(ms) {
 
 async function main() {
     console.log("Iniciando apuração");
-    while (true) {
-
+    var count = 0
+    while (count < 2000) {
         var candidato1 = Math.floor(Math.random() * 100)
         var candidato2 = Math.floor(Math.random() * 80)
         var nulos = Math.floor(Math.random() * 15)
@@ -49,7 +50,8 @@ async function main() {
                 console.log("Success", data.MessageId);
             }
         });
-        await sleep(10000);
+        await sleep(1000)
+        count += 1
     }
 }
 main()

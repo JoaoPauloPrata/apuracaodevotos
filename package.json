@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "aws-sdk": "~2.1.36",
-    "express": "~4.12.4"
+    "express": "~4.12.4",
+    "mysql2": "^2.3.3"
   }
 }
