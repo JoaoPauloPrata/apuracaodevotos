@@ -17,7 +17,13 @@ class DatabaseConnector {
 
 
     getApuracao() {
+        var query = "SELECT * FROM programa_trab.votacao ORDER BY id DESC limit 1"
+        return this.con.then(conn => {
+            return conn.query(query)
+        })
+    }
 
+    getApuracao() {
         var query = "SELECT * FROM programa_trab.votacao ORDER BY id DESC limit 1"
         return this.con.then(conn => {
             return conn.query(query)
