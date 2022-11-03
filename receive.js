@@ -42,11 +42,7 @@ async function main() {
                 if (count % 100 == 0) {
                     dbContext.insertInResults(candidato1, candidato2, nulos, brancos);
                 }
-                // console.log("RESULTADO DAS APURACOES")
-                // console.log("CANDIDATO 1", candidato1)
-                // console.log("CANDIDATO 2", candidato2)
-                // console.log("Nulos", nulos)
-                // console.log("Brancos", brancos)
+
                 data.Messages.forEach(element => {
                     var deleteParams = {
                         QueueUrl: queueURL,
