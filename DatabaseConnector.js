@@ -8,11 +8,13 @@ class DatabaseConnector {
         // });
     }
 
-    insertInResults(candidato1, candidato2, nulos, brancos) {
+    async insertInResults(candidato1, candidato2, nulos, brancos) {
         var query = `INSERT INTO  programa_trab.votacao (candidato1, candidato2, nulos, brancos) VALUES (${candidato1}, ${candidato2},${nulos},${brancos})`;
-        this.con.query(query, function (err, result) {
-            if (err) throw err;
+        console.log("INSERTING")
+        this.con.then(conn => {
+            conn.query(query)
         })
+
     }
 
 
@@ -23,11 +25,6 @@ class DatabaseConnector {
         })
     }
 
-    getApuracao() {
-        var query = "SELECT * FROM programa_trab.votacao ORDER BY id DESC limit 1"
-        return this.con.then(conn => {
-            return conn.query(query)
-        })
-    }
+
 }
 module.exports = DatabaseConnector;
