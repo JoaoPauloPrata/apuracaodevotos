@@ -38,11 +38,7 @@ async function main() {
                     candidato2 += parseInt(element.MessageAttributes.Candidato2.StringValue);
                     count += 1;
                 });
-                console.log(count)
-                if (count % 100 == 0) {
-                    dbContext.insertInResults(candidato1, candidato2, nulos, brancos);
-                }
-
+                await dbContext.insertInResults(candidato1, candidato2, nulos, brancos);
                 data.Messages.forEach(element => {
                     var deleteParams = {
                         QueueUrl: queueURL,
